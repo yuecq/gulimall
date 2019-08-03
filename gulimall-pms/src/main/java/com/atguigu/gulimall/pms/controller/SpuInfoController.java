@@ -33,6 +33,18 @@ public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
 
+
+    //pms/spuinfo/simple/search?t=1564809260041&page=1&limit=10&key=&catId=0
+    @GetMapping("/simple/search")
+
+    public Resp<Object> querySpuInfoPage(QueryCondition queryCondition,
+                                         @RequestParam(value = "catId",defaultValue = "0") Long catId){
+
+        PageVo page = spuInfoService.queryPageByCatId(queryCondition,catId);
+        return Resp.ok(page);
+    }
+
+
     /**
      * 列表
      */

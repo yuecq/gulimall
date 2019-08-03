@@ -33,6 +33,34 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
+
+    ///pms/attr/sale/{catId}
+    @ApiOperation("查询某个分类下对应的所有销售属性")
+    @GetMapping("/sale/{catId}")
+    public Resp<PageVo> getCatelogSaleAttrs(
+            @PathVariable("catId") Long catId,
+            QueryCondition queryCondition) {
+
+
+        PageVo pageVo = attrService.queryPageCatelogBaseAttrs(queryCondition, catId,0);
+
+        return Resp.ok(pageVo);
+    }
+
+    ///pms/attr/base/{catId}
+
+    @ApiOperation("查询某个分类下对应的所有基本属性")
+    @GetMapping("/base/{catId}")
+    public Resp<PageVo> getCatelogBaseAttrs(@PathVariable("catId") Long catId,
+                                            QueryCondition queryCondition){
+
+        PageVo pageVo = attrService.queryPageCatelogBaseAttrs(queryCondition,catId,1);
+        return Resp.ok(pageVo);
+
+    }
+
+
+
     /**
      * 列表
      */

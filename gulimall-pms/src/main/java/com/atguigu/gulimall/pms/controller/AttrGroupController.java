@@ -33,6 +33,17 @@ public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
 
+    ///pms/attrgroup/list/category/{catId}
+    @ApiOperation("查询某个三级分类下的所有属性分组")
+    @GetMapping("/list/category/{catId}")
+    public Resp<PageVo> getCatelogAttrGroups(QueryCondition queryCondition ,
+                                             @PathVariable("catId") Long catId){
+
+        PageVo vo = attrGroupService.queryPageAttrGroupsByCatId(queryCondition,catId);
+        return Resp.ok(vo);
+    }
+
+
     /**
      * 列表
      */

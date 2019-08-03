@@ -27,4 +27,19 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
         return new PageVo(page);
     }
 
+    @Override
+    public PageVo queryPageCatelogBaseAttrs(QueryCondition queryCondition, Long catId, Integer attrType) {
+       ////1、获取分页条件
+        IPage<AttrEntity> page = new Query<AttrEntity>().getPage(queryCondition);
+
+        //2、构造查询条件
+        QueryWrapper<AttrEntity> wrapper = new QueryWrapper<AttrEntity>()
+                .eq("catelog_id", catId)
+                .eq("attr_type",attrType);
+
+        IPage<AttrEntity> data = this.page(page, wrapper);
+        return new PageVo(data);
+
+    }
+
 }
