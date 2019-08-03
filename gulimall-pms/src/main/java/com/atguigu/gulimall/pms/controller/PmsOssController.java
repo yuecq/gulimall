@@ -20,10 +20,10 @@ import java.util.Map;
 @RestController
 public class PmsOssController {
 
-        String accessId = "LTAICGB3w6TM78UU";      // 请填写您的AccessKeyId。
-        String accessKey = "DAm6IPcEQ0TmU6EEVSusp8IoZvIZhL"; // 请填写您的AccessKeySecret。
+        String accessId = "LTAIGLRwp88wVONi";      // 请填写您的AccessKeyId。
+        String accessKey = "wSJsSQtZnNNo1M9GEbHGkFCV62RV6s"; // 请填写您的AccessKeySecret。
         String endpoint = "oss-cn-shanghai.aliyuncs.com"; // 请填写您的 endpoint。
-        String bucket = "gulimall";                    // 请填写您的 bucketname 。
+        String bucket = "gulimall-yue";                    // 请填写您的 bucketname 。
         String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint
 
         // callbackUrl为上传回调服务器的URL，请将下面的IP和Port配置为您自己的真实信息。
