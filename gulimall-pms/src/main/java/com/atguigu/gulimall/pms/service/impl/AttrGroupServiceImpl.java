@@ -1,5 +1,8 @@
 package com.atguigu.gulimall.pms.service.impl;
 
+import com.atguigu.gulimall.pms.dao.AttrAttrgroupRelationDao;
+import com.atguigu.gulimall.pms.entity.AttrAttrgroupRelationEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -16,6 +19,12 @@ import com.atguigu.gulimall.pms.service.AttrGroupService;
 
 @Service("attrGroupService")
 public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEntity> implements AttrGroupService {
+
+    @Autowired
+    AttrAttrgroupRelationDao relationDao;
+
+    @Autowired
+    AttrGroupDao attrGroupDao;
 
     @Override
     public PageVo queryPage(QueryCondition params) {
@@ -39,6 +48,24 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         IPage<AttrGroupEntity> data = this.page(page ,wrapper);
 
         return new PageVo(data);
+    }
+
+    @Override
+    public AttrGroupEntity getGroupInfoByAttrId(Long attrId) {
+
+        AttrGroupEntity attrGroupEntity = null;
+        //1、根据attrId去关联关系表找到在哪个组
+        AttrAttrgroupRelationEntity one = relationDao.selectOne(new QueryWrapper<AttrAttrgroupRelationEntity>()
+                .eq("attr_id", attrId));
+
+
+        //2、再根据分组的id找到分组信息
+        if(one !=null){
+            Long attrGroupId = one.getAttrGroupId();
+            attrGroupEntity = attrGroupDao.selectById(attrGroupId);
+
+        }
+        return attrGroupEntity;
     }
 
 }
