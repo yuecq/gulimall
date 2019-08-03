@@ -12,6 +12,7 @@
         <module name="gulimall-wms" />
         <module name="gulimall-ums" />
         <module name="gulimall-sms" />
+        <module name="gulimall-gateway" />
         <module name="gulimall-oms" />
         <module name="gulimall-pms" />
       </profile>
@@ -21,6 +22,7 @@
       <module name="gulimall" target="1.8" />
       <module name="gulimall-admin" target="1.8" />
       <module name="gulimall-core" target="1.8" />
+      <module name="gulimall-gateway" target="1.8" />
       <module name="gulimall-oms" target="1.8" />
       <module name="gulimall-pms" target="1.8" />
       <module name="gulimall-sms" target="1.8" />
@@ -32,6 +34,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="guli-generator" options="-parameters" />
       <module name="gulimall-admin" options="-parameters" />
+      <module name="gulimall-gateway" options="-parameters" />
       <module name="gulimall-oms" options="-parameters" />
       <module name="gulimall-pms" options="-parameters" />
       <module name="gulimall-sms" options="-parameters" />
