@@ -20,8 +20,8 @@ import java.util.Map;
 @RestController
 public class PmsOssController {
 
-        String accessId = "LTAIGLRwp88wVONi";      // 请填写您的AccessKeyId。
-        String accessKey = "wSJsSQtZnNNo1M9GEbHGkFCV62RV6s"; // 请填写您的AccessKeySecret。
+        String accessId = "LTAIDBmmaUtCWlHl";      // 请填写您的AccessKeyId。
+        String accessKey = "QulTAEcf0Jt6j2Xp1HFkfJYWJ2r56N"; // 请填写您的AccessKeySecret。
         String endpoint = "oss-cn-shanghai.aliyuncs.com"; // 请填写您的 endpoint。
         String bucket = "gulimall-yue";                    // 请填写您的 bucketname 。
         String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint

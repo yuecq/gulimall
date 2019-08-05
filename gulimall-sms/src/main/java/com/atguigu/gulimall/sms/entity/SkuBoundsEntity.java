@@ -19,7 +19,7 @@ import lombok.Data;
 @ApiModel
 @Data
 @TableName("sms_sku_bounds")
-public class SkuBoundsEntity implements Serializable {
+public class  SkuBoundsEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
